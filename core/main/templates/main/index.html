@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<header>
+    <form action="{% url 'index' %}">    
+        <input type="search" placeholder="Search" name="search">    
+        <button type="submit">Search</button>
+    </form>
+</header>
+<body>
+    <div>
+        {% for i in nout_list %}
+        <p>
+            {{ i.name }}
+            <a href="{% url 'index_detail' i.slug %}"><img src="{{ i.img.url }}" width="400px" alt=""></a>
+        </p>
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>
